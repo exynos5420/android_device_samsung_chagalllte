@@ -64,7 +64,7 @@ COMMON_GLOBAL_CFLAGS += -DFORCE_SCREENSHOT_CPU_PATH
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 TARGET_KERNEL_CONFIG := cyanogenmod_deathly_chagalllte_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/klimtwifi
+TARGET_KERNEL_SOURCE := kernel/samsung/tabs
 
 # Charging mode
 BOARD_CHARGER_ENABLE_SUSPEND := true
