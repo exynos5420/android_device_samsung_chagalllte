@@ -35,8 +35,10 @@ PRODUCT_PACKAGES += \
     tinymix
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio_effects.conf:system/etc/audio_effects.conf \
-    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+    device/samsung/chagalllte/audio/audio_policy.conf:system/etc/audio_policy.conf
+
+PRODUCT_COPY_FILES += \
+    device/samsung/chagalllte/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # Boot animation
 TARGET_BOOTANIMATION_HALF_RES := true
@@ -50,6 +52,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libboringssl-compat
 
+# Gello
+PRODUCT_PACKAGES += \
+    Gello
+
 # Camera
 PRODUCT_PACKAGES += \
     camera.universal5420 \
@@ -57,6 +63,16 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
+
+
+# adb has root
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.adb.secure=0 \
+    persist.adb.notify=0 \
+    ro.secure=0 \
+    persist.sys.root_access=3 \
+    ro.debuggable=1 \
+    persist.service.adb.enable=1
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -86,6 +102,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES := \
     keyguard.no_require_sim=true \
     ro.com.android.dataroaming=true
+
+# Cacert Root Certificate
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/security/cacerts/5ed36f99.0:system/etc/security/cacerts/5ed36f99.0 \
+    $(LOCAL_PATH)/rootdir/etc/security/cacerts/e5662767.0:system/etc/security/cacerts/e5662767.0
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -223,9 +244,6 @@ PRODUCT_PACKAGES += \
     macloader \
     modemloader
 
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_images
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=unknown 
@@ -249,9 +267,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-filter=speed \
     dalvik.vm.dex2oat-swap=false
 
+# Storage
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.sdcardfs.enable=true
+
 # cpboot-daemon for modem
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ril/sbin/cbd:root/sbin/cbd
+
+# SuperSU
+PRODUCT_COPY_FILES += \
+    vendor/aicp/prebuilt/common/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
+    vendor/aicp/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
 
 # call dalvik heap config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
