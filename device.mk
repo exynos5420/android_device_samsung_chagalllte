@@ -62,7 +62,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
 
-
 # adb has root
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.adb.secure=0 \
@@ -71,6 +70,10 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.sys.root_access=3 \
     ro.debuggable=1 \
     persist.service.adb.enable=1
+
+# Remove packages that do not work well
+PRODUCT_PACKAGES += \
+    RemovePackages
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
