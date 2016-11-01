@@ -171,10 +171,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcsc \
     libOMX.Exynos.WMV.Decoder \
-    libOMX.Exynos.MPEG2.Decoder \
-    libOMX.Exynos.MPEG4.Decoder \
-    libOMX.Exynos.HEVC.Decoder \
-    libOMX.Exynos.AVC.Decoder
+    libOMX.Exynos.MPEG2.Decoder 
 
 # Permissions
 PRODUCT_COPY_FILES += \
