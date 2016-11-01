@@ -87,7 +87,7 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.universal5420 
+    gps.universal5420
 
 # HW composer
 PRODUCT_PACKAGES += \
@@ -142,7 +142,7 @@ PRODUCT_COPY_FILES += \
 
 # simple script for system tuning
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/10systemtuning:system/etc/init.d/10systemtuning 
+    $(LOCAL_PATH)/configs/10systemtuning:system/etc/init.d/10systemtuning
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -171,10 +171,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcsc \
     libOMX.Exynos.WMV.Decoder \
-    libOMX.Exynos.MPEG2.Decoder \
-    libOMX.Exynos.MPEG4.Decoder \
-    libOMX.Exynos.HEVC.Decoder \
-    libOMX.Exynos.AVC.Decoder
+    libOMX.Exynos.MPEG2.Decoder
 
 # Permissions
 PRODUCT_COPY_FILES += \
