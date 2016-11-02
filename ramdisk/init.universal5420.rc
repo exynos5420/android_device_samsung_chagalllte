@@ -379,6 +379,10 @@ on boot
     write /sys/class/misc/wolfson_control/speaker_gain_right 6 # Set Right Speaker Gain
     write /sys/class/misc/wolfson_control/switch_eq_speaker  1 # Toggle EQ
 
+# IR_LED
+    chown system radio /sys/class/sec/sec_ir/ir_send
+    chown system radio /sys/class/sec/sec_ir/ir_send_result
+
 on fs
     mount_all /fstab.universal5420
 
@@ -611,10 +615,5 @@ service sswap /sbin/sswap -s
     class core
     user root
     group root
-    seclabel u:r:sswap:s0
     oneshot
-
-# IR LED
-on property:sys.boot_completed=1
-    chown system radio /sys/class/sec/sec_ir/ir_send
-    chown system radio /sys/class/sec/sec_ir/ir_send_result
+    seclabel u:r:sswap:s0
