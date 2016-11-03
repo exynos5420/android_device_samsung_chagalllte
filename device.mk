@@ -279,11 +279,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.sdcardfs.enable=true
 
-# SuperSU
-PRODUCT_COPY_FILES += \
-    vendor/aicp/prebuilt/common/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
-    vendor/aicp/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
-
 # Enable multi-window by default
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.debug.multi_window=true
