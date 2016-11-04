@@ -1,3 +1,4 @@
+
 # Copyright (C) 2013 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,4 +25,4 @@ PRODUCT_NAME := full_chagalllte
 PRODUCT_DEVICE := chagalllte
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := SM-T800
+PRODUCT_MODEL := SM-T805

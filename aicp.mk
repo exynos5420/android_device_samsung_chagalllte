@@ -14,8 +14,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=chagalllte \
     PRODUCT_DEVICE=chagalllte \
     TARGET_DEVICE=chagalllte \
-
-# Boot animation
-TARGET_SCREEN_HEIGHT := 2560
-TARGET_SCREEN_WIDTH := 1600
--include vendor/aicp/configs/bootanimation.mk
