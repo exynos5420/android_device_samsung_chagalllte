@@ -85,6 +85,7 @@ BOARD_USES_FIMGAPI_V4L2 := true
 # Graphics
 USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true
 
 # Mixer
 BOARD_USE_BGRA_8888 := true
@@ -101,8 +102,11 @@ BOARD_USES_HWC_SERVICES := true
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
+# IR Blaster
+IR_HAS_ONE_FREQ_RANGE := true
+
 # Hardware
-BOARD_HARDWARE_CLASS += device/samsung/kchagalllte/cmhw
+BOARD_HARDWARE_CLASS += device/samsung/chagalllte/cmhw
 BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
 
 # Keymaster
@@ -120,7 +124,6 @@ BOARD_USE_CSC_HW := true
 BOARD_USE_QOS_CTRL := false
 BOARD_USE_S3D_SUPPORT := true
 BOARD_USE_VP8ENC_SUPPORT := true
-BOARD_USE_HEVCDEC_SUPPORT := true
 
 # Partitions
 # /proc/partitions * 2 * BLOCK_SIZE (512) = size in bytes
@@ -133,7 +136,7 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 WITH_DEXPREOPT_BOOT_IMG_ONLY ?= false
-WITH_DEXPREOPT := false
+WITH_DEXPREOPT := true
 DONT_DEXPREOPT_PREBUILTS := true
 
 # Disable journaling on system.img to save space
@@ -141,6 +144,9 @@ BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
 
 # PowerHAL
 TARGET_POWERHAL_VARIANT := samsung
+
+# Sensors
+TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
 # Use these flags if the board has a ext4 partition larger than 2gb
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -183,6 +189,9 @@ WIFI_DRIVER_FW_PATH_STA          := "/system/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/system/etc/wifi/bcmdhd_apsta.bin"
 WIFI_DRIVER_NVRAM_PATH_PARAM     := "/sys/module/dhd/parameters/nvram_path"
 WIFI_DRIVER_NVRAM_PATH           := "/system/etc/wifi/nvram_net.txt"
+
+# Fixes screen flicker
+TARGET_FORCE_SCREENSHOT_CPU_PATH := true
 
 # custom additions to updater-script
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/samsung/chagalllte/releasetools/ota_from_target_files
