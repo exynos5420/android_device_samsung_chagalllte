@@ -24,10 +24,10 @@
     <!-- The duration (in milliseconds) that the radio will scan for a signal
          when there's no network connection. If the scan doesn't timeout, use zero -->
     <integer name="config_radioScanningTimeout">0</integer>
- 
+
     <!-- XXXXX NOTE THE FOLLOWING RESOURCES USE THE WRONG NAMING CONVENTION.
          Please don't copy them, copy anything else. -->
- 
+
     <!-- An Array of "[Connection name],[ConnectivityManager.TYPE_xxxx],
          [associated radio-type],[priority],[restoral-timer(ms)],[dependencyMet]  -->
     <!-- the 5th element "resore-time" indicates the number of milliseconds to delay
@@ -49,7 +49,7 @@
         <item>"wifi_p2p,13,1,0,-1,true"</item>
         <item>"mobile_ia,14,0,2,-1,true"</item>
     </string-array>
- 
+
     <!-- Array of ConnectivityManager.TYPE_xxxx values allowable for tethering -->
     <!-- Common options are [1, 4] for TYPE_WIFI and TYPE_MOBILE_DUN or
     <!== [0,1,5,7] for TYPE_MOBILE, TYPE_WIFI, TYPE_MOBILE_HIPRI and TYPE_BLUETOOTH -->
@@ -60,7 +60,7 @@
         <item>7</item>
         <item>9</item>
     </integer-array>
- 
+
     <!-- Our modem doesn't support this query yet -->
     <string name="config_radio_access_family">GSM|WCDMA|LTE</string>
     <!-- Hardware keys present on the device, stored as a bit field.
@@ -90,20 +90,5 @@
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
     <integer name="config_deviceHardwareWakeKeys">65</integer>
-
-    <!-- Configure mobile tcp buffer sizes in the form:
-        rat-name:rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max
-        If no value is found for the rat-name in use, the system default will be applied.
-   -->
-    <string-array translatable="false" name="config_mobile_tcp_buffers">
-        <item>lte:524288,1048576,2560000,524288,1048576,2560000</item>
-        <item>umts:14090,87380,704512,4096,16384,110208</item>
-        <item>hspa:12200,87380,704512,4096,16384,262144</item>
-        <item>hsupa:4094,87380,704512,4096,16384,262144</item>
-        <item>hsdpa:12200,87380,704512,4096,16384,262144</item>
-        <item>hspap:20970,87380,1220608,4096,16384,1220608</item>
-        <item>edge:8192,26280,704512,4096,16384,110208</item>
-        <item>gprs:8192,30000,704512,4096,8760,110208</item>
-    </string-array>
 
 </resources>

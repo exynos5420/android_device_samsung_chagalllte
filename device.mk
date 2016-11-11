@@ -67,17 +67,6 @@ PRODUCT_PACKAGES += \
     init.baseband.rc \
     ueventd.universal5420.rc
 
-PRODUCT_PACKAGES += \
-    fstab.universal5420 \
-    init.samsung.rc \
-    init.universal5420.rc \
-    init.universal5420.power.rc \
-    init.universal5420.usb.rc \
-    init.universal5420.wifi.rc \
-    init.baseband.rc \
-    ueventd.universal5420.rc \
-    init.recovery.universal5420.rc
-
 # Radio
 PRODUCT_PACKAGES += \
     libril \
@@ -89,15 +78,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=unknown
-
-# adb has root
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.adb.secure=0 \
-    persist.adb.notify=0 \
-    ro.secure=0 \
-    persist.sys.root_access=3 \
-    ro.debuggable=1 \
-    persist.service.adb.enable=1
 
 # call the proprietary setup
 $(call inherit-product, vendor/samsung/chagalllte/chagalllte-vendor.mk)
