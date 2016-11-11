@@ -8,3 +8,9 @@ symlink("/system/etc/wifi/bcmdhd_mfg.bin", "/system/etc/wifi/bcmdhd_mfg.bin_4354
 symlink("/system/etc/wifi/bcmdhd_sta.bin", "/system/etc/wifi/bcmdhd_sta.bin_4354_a1");
 symlink("/vendor/lib/egl/libGLES_mali.so", "/system/vendor/lib/libOpenCL.so.1.1");
 unmount("/system");
+ui_print "Getting boot.img..."
+busybox dd if=/dev/block/platform/dw_mmc.0/by-name/BOOT of=/tmp/boot.img
+ui_print "Patching boot.img..."
+echo "SEANDROIDENFORCE" >> /tmp/boot.img
+ui_print "Flashing boot.img..."
+busybox dd if=/tmp/boot.img of=/dev/block/platform/dw_mmc.0/by-name/BOOT
