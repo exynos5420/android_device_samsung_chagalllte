@@ -4,14 +4,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
 
 $(call inherit-product, device/samsung/chagalllte/device.mk)
 
-# Inherit some common AICP stuff.
-$(call inherit-product, vendor/aicp/configs/common_tablet.mk)
+# Inherit some common CM stuff.
+$(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
 
-# Inherit more AICP stuff.
-$(call inherit-product, vendor/aicp/configs/telephony.mk)
+# Inherit more cyanogenmod stuff.
+$(call inherit-product, vendor/cm/config/telephony.mk)
 
-PRODUCT_NAME := aicp_chagalllte
+PRODUCT_NAME := cm_chagalllte
 PRODUCT_DEVICE := chagalllte
+PRODUCT_BRAND := samsung
+PRODUCT_MANUFACTURER := samsung
+PRODUCT_MODEL := SM-T805
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_MODEL=SM-T805 \
