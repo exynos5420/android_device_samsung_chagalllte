@@ -36,6 +36,9 @@ TARGET_OTA_ASSERT_DEVICE := chagalllte
 
 # Kernel
 TARGET_KERNEL_CONFIG := cyanogenmod_deathly_chagalllte_defconfig
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-linux-eabi-UB-5.3/bin
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
+
 
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
