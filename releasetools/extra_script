@@ -1,7 +1,17 @@
+ui_print("Mounting system partition");
+mount("ext4", "EMMC", "/dev/block/platform/dw_mmc.0/by-name/SYSTEM", "/system", "");
+ui_print("");
+ui_print("Getting boot.img for patching...");
+run_program("/system/bin/busybox", "dd if=/dev/block/platform/dw_mmc.0/by-name/BOOT of=/tmp/boot.img");
+ui_print("Patching boot.img...");
+run_program("/system/bin/echo", "SEANDROIDENFORCE >> /tmp/boot.img");
+ui_print("Flashing boot.img...");
+run_program("/system/bin/busybox", "dd if=/tmp/boot.img of=/dev/block/platform/dw_mmc.0/by-name/BOOT");
+ui_print("Patched boot.img with SEANDROIDFORCE flashed!!!");
+delete("/tmp/boot.img");
 ui_print("");
 ui_print("Making symlinks for the diffrent Samsung wifi firmware variants");
 ui_print("");
-mount("ext4", "EMMC", "/dev/block/platform/dw_mmc.0/by-name/SYSTEM", "/system", "");
 symlink("/system/etc/wifi/bcmdhd_apsta.bin", "/system/etc/wifi/bcmdhd_apsta.bin_4354_a1");
 symlink("/system/etc/wifi/bcmdhd_ibss.bin", "/system/etc/wifi/bcmdhd_ibss.bin_4354_a1");
 symlink("/system/etc/wifi/bcmdhd_mfg.bin", "/system/etc/wifi/bcmdhd_mfg.bin_4354_a1");
