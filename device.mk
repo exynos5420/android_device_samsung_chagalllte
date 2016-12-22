@@ -80,7 +80,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=unknown
 
 # SELinux
-BOARD_SEPOLICY_DIRS += device/samsung/exynos5420-common/sepolicy
 BOARD_SEPOLICY_DIRS += device/samsung/chagalllte/sepolicy    
 
 # call the proprietary setup
