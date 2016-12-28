@@ -4,6 +4,8 @@ on init
     restorecon /dev/mbin0
     symlink /sys/devices/platform/s5p-ehci/ehci_power /dev/ehci_power
 
+    export LD_SHIM_LIBS "/system/bin/gpsd|libdmitry.so"
+
 on fs
     chown radio system /efs
     chmod 0771 /efs
