@@ -31,6 +31,9 @@ BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
+# DT2W
+TARGET_DT2W_PATH := /sys/class/input/input1/wake_gesture
+
 # Bootloader
 TARGET_OTA_ASSERT_DEVICE := chagalllte
 
