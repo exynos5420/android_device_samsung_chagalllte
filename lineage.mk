@@ -7,10 +7,10 @@ $(call inherit-product, device/samsung/chagalllte/device.mk)
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
 
-# Inherit more cyanogenmod stuff.
+# Inherit more LineageOS stuff.
 $(call inherit-product, vendor/cm/config/telephony.mk)
 
-PRODUCT_NAME := cm_chagalllte
+PRODUCT_NAME := lineage_chagalllte
 PRODUCT_DEVICE := chagalllte
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
