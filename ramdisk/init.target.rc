@@ -1,23 +1,38 @@
 import init.baseband.rc
 
+on init
+    export LD_SHIM_LIBS "/system/bin/gpsd|libshim.so"
+
 on post-fs-data
 # Open permissions for touchkey_enable so KeyDisabler can write to it
     chown system root /sys/devices/virtual/sec/sec_touchkey/touchkey_enabled
 
 on boot
+
+# Fingerprint
+    mkdir /dev/validity 0770 system system
+    mkdir /data/validity 0770 system system
+
+# Fingerprint Sensor
+    chown system radio /sys/class/fingerprint/fingerprint/type_check
+
 # Headphones (Headset)
-    chown system system /sys/class/input/input11/enabled
+    chown system system /sys/class/input/input12/enabled
+    chmod 0660 /sys/class/input/input12/enabled
+
+# Physical Home Button (gpio-keys)
+    chown system radio /sys/class/input/input11/enabled
     chmod 0660 /sys/class/input/input11/enabled
 
 # Capacitive Buttons (sec_touchkey)
     chown system radio /sys/class/input/input10/enabled
     chmod 0660 /sys/class/input/input10/enabled
 
-# Physical Home Button (gpio-keys)
-    chown system radio /sys/class/input/input9/enabled
+# Grip Sensor
+    chown system system /sys/class/input/input9/enabled
     chmod 0660 /sys/class/input/input9/enabled
 
-# Grip Sensor
+# Proximity Sensor
     chown system system /sys/class/input/input8/enabled
     chmod 0660 /sys/class/input/input8/enabled
 
@@ -46,8 +61,11 @@ on boot
     chmod 0660 /sys/class/input/input2/enabled
 
 # Micro-USB IC (max77803-muic)
-    chown system system /sys/class/input/input1/enabled
-    chmod 0660 /sys/class/input/input1/enabled
+    chown system system /sys/class/input/input0/enabled
+    chmod 0660 /sys/class/input/input0/enabled
+
+# Magnetic_sensor
+    chown system radio /dev/akm8963
 
 # Grip_sensor
     chown system radio /sys/class/sensors/grip_sensor/vendor
@@ -57,9 +75,10 @@ on boot
     chown system radio /sys/class/sensors/grip_sensor/threshold
     chown system radio /sys/class/sensors/grip_sensor/onoff
 
-on fs
-# Fingerprint
-    mkdir /dev/validity 0770 system system
+service fingerprintd /system/bin/fingerprintd
+    class late_start
+    user system
+    group input
 
 # SENSOR FRAMEWORK : starts fingerprintService
 service vcsFPService /system/bin/vcsFPService
