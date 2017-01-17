@@ -16,7 +16,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),chagalllte)
+ifeq ($(TARGET_DEVICE),chagalllte chagallltetmo chagallltedo chagalllteub chagallltecan)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
