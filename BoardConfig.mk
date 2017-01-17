@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,32 +17,11 @@
 
 LOCAL_PATH := device/samsung/chagalllte
 
-# Platform
-BOARD_VENDOR := samsung
-TARGET_SOC := exynos5420
-
-# RIL
-BOARD_PROVIDES_LIBRIL := true
-# hardware/samsung/ril
-BOARD_MODEM_TYPE := xmm7260
-# RIL.java overwrite
-BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
-BOARD_MODEM_NEEDS_VIDEO_CALL_FIELD := true
-
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
-# Bootloader
-TARGET_OTA_ASSERT_DEVICE := chagalllte
-
 # Kernel
 TARGET_KERNEL_CONFIG := cyanogenmod_deathly_chagalllte_defconfig
-
-# Include path
-TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
-
-# Cyanogen Hardware
-BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
@@ -51,12 +31,5 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 12629049344
 BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
 BOARD_FLASH_BLOCK_SIZE := 4096
 
-# SELinux
-BOARD_SEPOLICY_DIRS += device/samsung/exynos5420-common/sepolicy
-BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
-
-# custom additions to updater-script
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/samsung/chagalllte/releasetools/ota_from_target_files
-
-# Inherit from exynos5420-common
-include device/samsung/exynos5420-common/BoardConfigCommon.mk
+# Inherit from the chagalllte common
+include device/samsung/chagalllte/BoardConfigCommon.mk
