@@ -38,10 +38,10 @@ TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1600
 
 # Fingerprint
-PRODUCT_PACKAGES += \
-    fingerprintd \
-    fingerprint.universal5420 \
-    ValidityService
+#PRODUCT_PACKAGES += \
+#    fingerprintd \
+#    fingerprint.universal5420 \
+#    ValidityService
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
