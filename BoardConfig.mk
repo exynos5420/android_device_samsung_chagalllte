@@ -43,9 +43,6 @@ TARGET_KERNEL_CONFIG := lineageos_deathly_chagalllte_defconfig
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
-# Cyanogen Hardware
-BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
-
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760
@@ -57,7 +54,7 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 
 # SELinux
 BOARD_SEPOLICY_DIRS += device/samsung/exynos5420-common/sepolicy
-BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS += device/samsung/chagalllte/sepolicy
 
 # Fixes screen flicker
 TARGET_FORCE_SCREENSHOT_CPU_PATH := true
