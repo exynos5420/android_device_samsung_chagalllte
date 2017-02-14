@@ -52,6 +52,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml
 
+PRODUCT_PACKAGES += \
+    libxml2
+
 # Shim
 PRODUCT_PACKAGES += \
     libshim
@@ -62,11 +65,8 @@ PRODUCT_PROPERTY_OVERRIDES := \
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
+    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
+#    frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
 
 PRODUCT_PACKAGES += \
     fstab.universal5420 \
@@ -74,17 +74,8 @@ PRODUCT_PACKAGES += \
     init.baseband.rc \
     ueventd.universal5420.rc
 
-# Radio
-PRODUCT_PACKAGES += \
-    libril \
-    librilutils \
-    rild \
-    libxml2 \
-    libprotobuf-cpp-full \
-    modemloader
-
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.carrier=unknown
+    ro.carrier=wifi-only
 
 # SELinux
 BOARD_SEPOLICY_DIRS += device/samsung/chagalllte/sepolicy
