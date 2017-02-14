@@ -1,6 +1,5 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
 
 # Inherit some common AICP stuff.
 $(call inherit-product, vendor/aicp/configs/common_tablet.mk)
