@@ -14,10 +14,3 @@ PRODUCT_NAME := lineage_chagalllte
 PRODUCT_DEVICE := chagalllte
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := SM-T805
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_MODEL=SM-T805 \
-    PRODUCT_NAME=chagalllte \
-    PRODUCT_DEVICE=chagalllte \
-    TARGET_DEVICE=chagalllte

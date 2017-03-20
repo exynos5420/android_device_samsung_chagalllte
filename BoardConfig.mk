@@ -41,6 +41,11 @@ BOARD_CUSTOM_BOOTIMG := true
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
+# Vendor Init
+TARGET_UNIFIED_DEVICE := true
+TARGET_INIT_VENDOR_LIB := libinit_chagalllte
+TARGET_RECOVERY_DEVICE_MODULES := libinit_chagalllte
+
 # Cyanogen Hardware
 BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
 
