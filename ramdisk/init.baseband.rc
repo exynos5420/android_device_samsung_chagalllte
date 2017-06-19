@@ -23,7 +23,7 @@ service cpboot-daemon /system/bin/cbd -d -txmm7160 -bh -mh -p 13
     user root
     group radio cache inet misc audio sdcard_rw log sdcard_r shell
 
-service ril-daemon /system/bin/rild
+service_redefine ril-daemon /system/bin/rild
     class main
     socket rild stream 660 root radio
     socket sap_uim_socket1 stream 660 bluetooth bluetooth
@@ -31,6 +31,10 @@ service ril-daemon /system/bin/rild
     user root
     group radio cache inet misc audio sdcard_r sdcard_rw diag log readproc wakelock
     onrestart restart cpboot-daemon
+
+on property:persist.sys.cpboot=disable
+    stop ril-daemon
+    stop cpboot-daemon
 
 # Modem Logging daemon
 #service ML-daemon /system/bin/mlexe
