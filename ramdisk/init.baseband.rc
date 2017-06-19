@@ -22,6 +22,7 @@ service cpboot-daemon /system/bin/cbd -d -txmm7160 -bh -mh -p 13
     class main
     user root
     group radio cache inet misc audio sdcard_rw log sdcard_r shell
+    disabled
 
 service ril-daemon /system/bin/rild
     class main
@@ -31,7 +32,16 @@ service ril-daemon /system/bin/rild
     user root
     group radio cache inet misc audio sdcard_r sdcard_rw diag log readproc wakelock
     onrestart restart cpboot-daemon
+    disabled
 
+on property:ro.modemloader.done=1
+    start cpboot-daemon
+    start ril-daemon
+
+on property:persist.sys.cpboot=disable
+    stop ril-daemon
+    stop cpboot-daemon
+    
 # Modem Logging daemon
 #service ML-daemon /system/bin/mlexe
 #    class main
@@ -39,12 +49,19 @@ service ril-daemon /system/bin/rild
 #    group system radio inet net_raw
 
 on post-fs-data
+    # Remove symlinks to avoid issues with migrate after nandroid restores
+    # Will be recreated at end of boot
+    rm -r /data/data/com.android.providers.telephony/databases
+    rm -r /data/data/com.android.providers.telephony/shared_prefs
+
     # Symlink directories to access telephony.db and preferred-apn.xml required by cbd
     symlink /data/user_de/0/com.android.providers.telephony/databases /data/data/com.android.providers.telephony/databases
     symlink /data/user_de/0/com.android.providers.telephony/shared_prefs /data/data/com.android.providers.telephony/shared_prefs
+    chown radio radio /data/data/com.android.providers.telephony/databases
+    chmod 0771 /data/data/com.android.providers.telephony/databases
+    chown radio radio /data/data/com.android.providers.telephony/shared_prefs
+    chmod 0771 /data/data/com.android.providers.telephony/databases
 
-on early-boot
-    # Remove symlinks to avoid issues with migrate after nandroid restores
-    # Will be recreated at end of boot
-    rm -r -d /data/data/com.android.providers.telephony/databases
-    rm -r -d /data/data/com.android.providers.telephony/shared_prefs
+    # restart RIL <--> modem stack to account for new locations
+    restart cpboot-daemon
+    restart ril-daemon
