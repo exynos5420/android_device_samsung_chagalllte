@@ -52,7 +52,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES := \
     keyguard.no_require_sim=true \
-    ro.com.android.dataroaming=true
+    ro.com.android.dataroaming=true \
+    audio_hal.force_voice_config=wide \
+    audio_hal.disable_two_mic=true
 
 # Permissions
 PRODUCT_COPY_FILES += \
