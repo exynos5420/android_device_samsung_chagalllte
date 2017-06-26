@@ -334,7 +334,7 @@
     </path>
 
     <path name="speaker-mic">
-        <path name="second-mic" />
+        <path name="main-mic" />
     </path>
 
     <path name="voice-mic">
