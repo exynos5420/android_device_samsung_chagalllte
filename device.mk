@@ -27,7 +27,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/mixer_paths_0.xml:system/etc/mixer_paths_0.xml \
     $(LOCAL_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf
 
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_PROPERTY_OVERRIDES := \
     audio_hal.force_voice_config=wide \
     audio_hal.disable_two_mic=true
 
@@ -55,7 +55,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libshim
 
-PRODUCT_PROPERTY_OVERRIDES := \
+PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true \
     ro.com.android.dataroaming=true
 
