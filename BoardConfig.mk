@@ -63,5 +63,8 @@ TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/samsung/chagalllte/releaseto
 # Cyanogen Hardware
 BOARD_HARDWARE_CLASS := $(COMMON_PATH)/cmhw
 
+# Audio
+TARGET_AUDIOHAL_VARIANT := samsung
+
 # Inherit from exynos5420-common
 include device/samsung/exynos5420-common/BoardConfigCommon.mk
