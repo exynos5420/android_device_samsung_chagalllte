@@ -232,8 +232,8 @@
         <path name="verb-normal" />
         <ctl name="SPK Switch" value="1" />
         <ctl name="Speaker Digital Volume" value="125" />
-        <ctl name="SPKOUTL Input 1 Volume" value="61" />
-        <ctl name="SPKOUTR Input 1 Volume" value="60" />
+        <ctl name="SPKOUTL Input 1 Volume" value="39" />
+        <ctl name="SPKOUTR Input 1 Volume" value="42" />
     </path>
 
     <path name="headphones">
