@@ -79,6 +79,13 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     modemloader
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.carrier=unknown
+
+# Sensors wrapper
+PRODUCT_PACKAGES += \
+    sensors.universal5420
+
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapstartsize=8m \
@@ -101,6 +108,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_small_cache_height=1024 \
     ro.hwui.text_large_cache_width=2048 \
     ro.hwui.text_large_cache_height=1024
+
+# call dalvik heap and hwui config
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk)
+
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
 # call the proprietary setup
 $(call inherit-product, vendor/samsung/chagalllte/chagalllte-vendor.mk)
