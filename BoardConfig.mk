@@ -43,6 +43,9 @@ TARGET_KERNEL_CONFIG := lineageos_deathly_chagalllte_defconfig
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
+# Lineage Hardware
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/lineagehw
+
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760
