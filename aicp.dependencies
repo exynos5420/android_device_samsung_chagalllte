@@ -1,6 +1,12 @@
 [
   {
     "remote":      "github",
+    "repository":  "ssehovic/android_device_samsung_chagalllte",
+    "target_path": "device/samsung/chagalllte",
+    "branch":      "AICP_o8.1"
+  },
+  {
+    "remote":      "github",
     "repository":  "exynos5420/android_device_samsung_exynos5420-common",
     "target_path": "device/samsung/exynos5420-common",
     "branch":      "lineage-15.0"
