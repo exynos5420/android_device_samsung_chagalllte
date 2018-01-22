@@ -1,14 +1,10 @@
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
+# Release name
+PRODUCT_RELEASE_NAME := chagalllte
 
-# Inherit some common AICP stuff.
-$(call inherit-product, vendor/aicp/configs/common_tablet.mk)
+# Inherit some AICP  stuff.
+$(call inherit-product, vendor/aicp/config/common_full_phone.mk)
 
-# Inherit more AICP stuff.
-$(call inherit-product, vendor/aicp/configs/telephony.mk)
-
-# Inherit from chagalllte device
+# Inherit from cheeseburger device
 $(call inherit-product, device/samsung/chagalllte/device.mk)
 
 PRODUCT_NAME := aicp_chagalllte
