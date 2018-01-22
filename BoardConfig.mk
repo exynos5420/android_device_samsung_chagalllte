@@ -38,6 +38,7 @@ TARGET_OTA_ASSERT_DEVICE := chagalllte
 USE_CLANG_PLATFORM_BUILD := true
 
 # Kernel
+BOARD_KERNEL_IMAGE_NAME := zImage
 TARGET_KERNEL_CONFIG := lineageos_deathly_chagalllte_defconfig
 
 # Include path
