@@ -22,3 +22,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=chagalllte \
     PRODUCT_DEVICE=chagalllte \
     TARGET_DEVICE=chagalllte
+
+BUILD_FINGERPRINT=samsung/chagalllte/chagalllte:6.0.1/MMB29K/T800DDU1CPL3:user/release-keys
