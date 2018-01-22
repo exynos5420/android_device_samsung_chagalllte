@@ -56,17 +56,14 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 # SELinux
-BOARD_SEPOLICY_DIRS += device/samsung/exynos5420-common/sepolicy
-BOARD_SEPOLICY_DIRS += device/samsung/chagalllte/sepolicy
+#BOARD_SEPOLICY_DIRS += device/samsung/exynos5420-common/sepolicy
+#BOARD_SEPOLICY_DIRS += device/samsung/chagalllte/sepolicy
 
 # Fixes screen flicker
 TARGET_FORCE_SCREENSHOT_CPU_PATH := true
 
 # custom additions to updater-script
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/samsung/chagalllte/releasetools/ota_from_target_files
-
-# Cyanogen Hardware
-BOARD_HARDWARE_CLASS := $(COMMON_PATH)/cmhw
 
 # Audio
 TARGET_AUDIOHAL_VARIANT := samsung
