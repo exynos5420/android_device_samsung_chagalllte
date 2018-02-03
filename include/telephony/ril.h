@@ -86,6 +86,8 @@ extern "C" {
 #define MAX_QEMU_PIPE_NAME_LENGTH  11
 #define MAX_UUID_LENGTH 64
 
+#define MAX_SERVICE_NAME_LENGTH 6
+
 typedef void * RIL_Token;
 
 typedef enum {
