@@ -33,6 +33,9 @@ USE_CLANG_PLATFORM_BUILD := true
 BOARD_KERNEL_IMAGE_NAME := zImage
 TARGET_KERNEL_CONFIG := lineageos_deathly_chagalllte_defconfig
 
+# legacy f_adb kernel drivers 
+TARGET_USES_LEGACY_ADB_INTERFACE := true
+
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
