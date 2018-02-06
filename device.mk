@@ -72,7 +72,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fstab.universal5420 \
     init.target.rc \
-    init.baseband.rc \
     ueventd.universal5420.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
