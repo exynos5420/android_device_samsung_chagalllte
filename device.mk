@@ -34,6 +34,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     audio.primary.universal5420
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1600
