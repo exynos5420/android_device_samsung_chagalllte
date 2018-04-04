@@ -18,3 +18,8 @@ LOCAL_PATH := device/samsung/chagalllte
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_chagalllte.mk
+
+COMMON_LUNCH_CHOICES := \
+    lineage_chagalllte-user \
+    lineage_chagalllte-userdebug \
+    lineage_chagalllte-eng
