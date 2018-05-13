@@ -49,14 +49,14 @@ public class SlteRIL extends RIL {
 
     private static final int RIL_UNSOL_DEVICE_READY_NOTI = 11008;
     private static final int RIL_UNSOL_AM = 11010;
-    private static final int RIL_UNSOL_SIM_PB_READY = 11021;
-
+    private static final int RIL_UNSOL_DUN_PIN_CONTROL_SIGNAL = 11011;
     private static final int RIL_REQUEST_DIAL_EMERGENCY_CALL = 10016;
-
+    private static final int RIL_UNSOL_SIM_PB_READY = 11021;
     private static final int RIL_REQUEST_SIM_TRANSMIT_BASIC = 10026;
     private static final int RIL_REQUEST_SIM_OPEN_CHANNEL = 10027;
     private static final int RIL_REQUEST_SIM_CLOSE_CHANNEL = 10028;
     private static final int RIL_REQUEST_SIM_TRANSMIT_CHANNEL = 10029;
+    private static final int RIL_UNSOL_SIM_SWAP_STATE_CHANGED = 11057;
 
     private Message mPendingGetSimStatus;
 
@@ -433,6 +433,17 @@ public class SlteRIL extends RIL {
         return ret;
     }
 
+    // This mehotd is used to forward non OEM or remapped responses to the super class.
+    // Set newResponse to -1 if you dont need to remap the response.
+    public void
+    superProcessUnsolicited(Parcel p, int type, int dataPosition, int newResponse) {
+        p.setDataPosition(dataPosition); // Lets rewind the parcel
+        if (newResponse != -1) { // if newResponse is not -1 we need to remap the response.
+            p.writeInt(newResponse);
+        }
+        super.processUnsolicited(p, type); // Now lets forward the response to the super class.
+    }
+
     @Override
     protected void
     processUnsolicited(Parcel p, int type) {
@@ -478,12 +489,15 @@ public class SlteRIL extends RIL {
             case RIL_UNSOL_STK_SEND_SMS_RESULT:
                 ret = responseInts(p);
                 break;
+            case RIL_UNSOL_DUN_PIN_CONTROL_SIGNAL:
+                ret = responseVoid(p);
+                break;
+            case RIL_UNSOL_SIM_SWAP_STATE_CHANGED: // To be remapped
+                superProcessUnsolicited(p, type, dataPosition,
+                      RIL_UNSOL_RESPONSE_SIM_STATUS_CHANGED);
+                return;
             default:
-                // Rewind the Parcel
-                p.setDataPosition(dataPosition);
-
-                // Forward responses that we are not overriding to the super class
-                super.processUnsolicited(p, type);
+                superProcessUnsolicited(p, type, dataPosition, -1);
                 return;
         }
 
