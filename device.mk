@@ -16,7 +16,7 @@
 
 LOCAL_PATH := device/samsung/chagalllte
 
-PRODUCT_CHARACTERISTICS := tablet
+PRODUCT_CHARACTERISTICS := tablet,noearpiece
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Device uses high-density artwork where available
