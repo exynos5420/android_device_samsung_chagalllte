@@ -42,8 +42,9 @@ on property:persist.sys.cpboot=disable
 #    user root
 #    group system radio inet net_raw
 
-on post-fs-data
+on property:sys.boot_completed=1
     # Symlink directories to access telephony.db and preferred-apn.xml required by cbd
+    # Required for mobile data bringup on first boot as /data/data/com.android.providers.telephony gets recreated on boot
     symlink /data/user_de/0/com.android.providers.telephony/databases /data/data/com.android.providers.telephony/databases
     symlink /data/user_de/0/com.android.providers.telephony/shared_prefs /data/data/com.android.providers.telephony/shared_prefs
 
