@@ -16,5 +16,10 @@
 
 LOCAL_PATH := device/samsung/chagalllte
 
+# Ramdisk
+PRODUCT_PACKAGES += \
+    init.baseband.rc \
+    init.target.rc
+
 # Inherit from chagall-common
 $(call inherit-product, device/samsung/chagall-common/device-common.mk)
