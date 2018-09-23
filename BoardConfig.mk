@@ -22,6 +22,9 @@ LOCAL_PATH := device/samsung/chagalllte
 # Assert
 TARGET_OTA_ASSERT_DEVICE := chagalllte
 
+# Kernel
+TARGET_KERNEL_CONFIG := lineageos_chagalllte_defconfig
+
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760
