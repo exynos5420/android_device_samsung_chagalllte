@@ -34,15 +34,24 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 # Bootloader
 TARGET_OTA_ASSERT_DEVICE := chagalllte
 
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/chagalllte/releasetools
+TARGET_BOARD_INFO_FILE ?= device/samsung/chagalllte/board-info.txt
+
+# Clang
+USE_CLANG_PLATFORM_BUILD := true
+
+# GPS-shims
+TARGET_LD_SHIM_LIBS := /system/bin/gpsd|libshim.so
+
 # Kernel
 TARGET_KERNEL_CONFIG := lineageos_deathly_chagalllte_defconfig
-BOARD_CUSTOM_BOOTIMG := true
 
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
-# Cyanogen Hardware
-BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
+# lineage Hardware
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/lineagehw
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
@@ -57,14 +66,14 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 BOARD_SEPOLICY_DIRS += device/samsung/exynos5420-common/sepolicy
 BOARD_SEPOLICY_DIRS += device/samsung/chagalllte/sepolicy
 
+# Fixes screen flicker
+TARGET_FORCE_SCREENSHOT_CPU_PATH := true
+
+# Lineage Hardware
+BOARD_HARDWARE_CLASS := $(COMMON_PATH)/lineagehw
+
 # custom additions to updater-script
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/samsung/chagalllte/releasetools/ota_from_target_files
-
-# Cyanogen Hardware
-BOARD_HARDWARE_CLASS := $(COMMON_PATH)/cmhw
-
-# Audio
-TARGET_AUDIOHAL_VARIANT := samsung
 
 # Inherit from exynos5420-common
 include device/samsung/exynos5420-common/BoardConfigCommon.mk
