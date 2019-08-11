@@ -1,3 +1,4 @@
+ifeq ($(TARGET_DEVICE),chagalllte)
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
@@ -24,3 +25,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE=chagalllte
 
 BUILD_FINGERPRINT := samsung/chagallltezh/chagalllte:6.0.1/MMB29K/T805ZHU1CQB1:user/release-keys
+endif
