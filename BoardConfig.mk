@@ -41,8 +41,8 @@ BOARD_CUSTOM_BOOTIMG := true
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
-# Cyanogen Hardware
-BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
+# LineageOS Hardware
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/lineagehw
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
