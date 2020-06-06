@@ -64,8 +64,8 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 # SELinux
-BOARD_SEPOLICY_DIRS += device/samsung/exynos5420-common/sepolicy
-BOARD_SEPOLICY_DIRS += device/samsung/chagalllte/sepolicy
+# ijh comment for now BOARD_SEPOLICY_DIRS += device/samsung/exynos5420-common/sepolicy
+# BOARD_SEPOLICY_DIRS += device/samsung/chagalllte/sepolicy
 
 # Fixes screen flicker
 TARGET_FORCE_SCREENSHOT_CPU_PATH := true
