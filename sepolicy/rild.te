@@ -1,5 +1,3 @@
-permissive rild;
-
 # Allow additiional efs access
 allow rild bin_nv_data_efs_file:file create_file_perms;
 allow rild imei_efs_file:dir r_dir_perms;
@@ -30,3 +28,4 @@ allow rild mediaserver:file { open read getattr };
 # /data/misc/radio/*
 allow rild radio_data_file:dir rw_dir_perms;
 allow rild radio_data_file:file create_file_perms;
+allow rild gpsd_exec:file getattr;

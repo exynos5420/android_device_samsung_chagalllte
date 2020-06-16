@@ -1,0 +1,1 @@
+allow vold gpsd_exec:file getattr;

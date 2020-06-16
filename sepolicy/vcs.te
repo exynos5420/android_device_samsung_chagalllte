@@ -1,6 +1,4 @@
 type vcs, domain;
-permissive vcs;
-
 type vcs_exec, exec_type, file_type;
 
 # vcs
@@ -23,3 +21,6 @@ allow vcs tee:unix_stream_socket connectto;
 
 # /dev/s5p-smem
 allow vcs secmem_device:chr_file { read write ioctl open };
+allow vcs ion_device:chr_file open;
+
+allow vcs gpsd_exec:file getattr;

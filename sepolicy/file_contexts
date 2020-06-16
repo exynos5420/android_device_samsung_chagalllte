@@ -12,7 +12,21 @@
 /system/bin/cbd								            u:object_r:cpboot-daemon_exec:s0
 /system/bin/modemloader						            u:object_r:modemloader_exec:s0
 
+#/dev/block/mmcblk0p13                                  u:object_r:radio_block_device:s0
+
 # GPS
 /dev/ttySAC1                                            u:object_r:gps_device:s0
 /system/bin/gpsd                                        u:object_r:gpsd_exec:s0
 /data/system/gps(/.*)?                                  u:object_r:gps_data_file:s0
+
+#wifi
+/system/bin/wifiloader                                  u:object_r:wifiloader_exec:s0
+
+/sys/module/dhd/parameters/firmware_path                u:object_r:wlan_fwpath:s0
+/sys/module/dhd/parameters/nvram_path                   u:object_r:wlan_fwpath:s0
+/sys/module/bcmdhd/parameters/firmware_path             u:object_r:wlan_fwpath:s0 
+
+# Camera
+/sys/devices/virtual/camera/rear/rear_camfw             u:object_r:camera_device:s0
+/sys/devices/virtual/camera/front/front_camfw           u:object_r:camera_device:s0
+

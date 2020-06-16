@@ -56,16 +56,23 @@ BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/lineagehw
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10952704 #Not using LineageOs recovery ATM so bump the size so the build doesn't complain original value 10485760
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2202009600
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12629049344
 BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 4096
-
+BOARD_USES_FULL_RECOVERY_IMAGE := true
 # SELinux
-# ijh comment for now BOARD_SEPOLICY_DIRS += device/samsung/exynos5420-common/sepolicy
-# BOARD_SEPOLICY_DIRS += device/samsung/chagalllte/sepolicy
+BOARD_SEPOLICY_DIRS += device/samsung/exynos5420-common/sepolicy
+BOARD_SEPOLICY_DIRS += device/samsung/chagalllte/sepolicy
+
+BOARD_KERNEL_CMDLINE := enforcing=0 androidboot.selinux=permissive
+BOARD_HAVE_SAMSUNG_WIFI := true
+
+WIFI_DRIVER_MODULE_ARG           := "firmware_path=/system/etc/wifi/bcmdhd_sta.bin nvram_path=/system/etc/wifi/nvram_net.txt"
+WIFI_DRIVER_MODULE_AP_ARG        := "firmware_path=/system/etc/wifi/bcmdhd_apsta.bin nvram_path=/system/etc/wifi/nvram_net.txt"
+WIFI_BAND                        := 802_11_ABG
 
 # Fixes screen flicker
 TARGET_FORCE_SCREENSHOT_CPU_PATH := true

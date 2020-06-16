@@ -1,0 +1,3 @@
+allow system_server debugfs:dir read;
+allow system_server efs_file:dir search;
+allow system_server app_efs_file:dir search;

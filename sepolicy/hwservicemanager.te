@@ -1,0 +1,1 @@
+allow hwservicemanager sysfs:file open;

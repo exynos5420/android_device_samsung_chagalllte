@@ -1,13 +1,9 @@
 type gpsd, domain;
-permissive gpsd;
+
 type gpsd_exec, exec_type, file_type;
 
 init_daemon_domain(gpsd)
 net_domain(gpsd)
-
-allow gpsd rild:unix_stream_socket { connectto };
-allow gpsd self:process { execmem };
-allow gpsd sysfs_wake_lock:file { read write };
 
 #allow gpsd gps_data_file:dir rw_dir_perms;
 #allow gpsd gps_data_file:notdevfile_class_set create_file_perms;
@@ -18,13 +14,16 @@ allow gpsd sysfs_wake_lock:file { read write };
 #type_transition gpsd gps_data_file:sock_file gps_socket;
 #allow gpsd gps_socket:sock_file create_file_perms;
 
+# Execute the shell or system commands.
+#allow gpsd toolbox_exec:file rx_file_perms;
+#allow gpsd shell_exec:file rx_file_perms;
+#allow gpsd system_file:file rx_file_perms;
+
 # XXX Label sysfs files with a specific type?
 
-allow gpsd sysfs:file rw_file_perms;
-allow gpsd gps_device:chr_file rw_file_perms;
+#allow gpsd sysfs:file rw_file_perms;
+#allow gpsd gps_device:chr_file rw_file_perms;
+#allow gpsd sysfs_wake_lock:file { read write };
 
-# Execute the shell or system commands.
-
-allow gpsd shell_exec:file rx_file_perms;
-allow gpsd system_file:file rx_file_perms;
-allow gpsd toolbox_exec:file rx_file_perms;
+allow gpsd rild:unix_stream_socket { connectto };
+allow gpsd self:process { execmem };

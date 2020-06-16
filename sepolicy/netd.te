@@ -1,0 +1,8 @@
+# Allow loading the bcmdhd kernel module
+allow netd kernel:system module_request;
+allow netd self:capability sys_module;
+allow netd dhcp_data_file:dir setattr;
+allow netd init:tcp_socket { read write getopt setopt };
+allow netd gpsd_exec:file getattr;
+
+allow netd sysfs_wlan_fwpath:file w_file_perms;

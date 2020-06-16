@@ -1,0 +1,1 @@
+allow audioserver gpsd_exec:file getattr;

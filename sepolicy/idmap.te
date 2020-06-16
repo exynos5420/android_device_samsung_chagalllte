@@ -1,0 +1,3 @@
+allow idmap gpsd_exec:file getattr;
+allow idmap sysfs:file read;
+allow idmap sysfs:file open;

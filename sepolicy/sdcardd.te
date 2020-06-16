@@ -1,0 +1,1 @@
+allow sdcardd gpsd_exec:file getattr;
