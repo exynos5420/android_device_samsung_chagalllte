@@ -21,7 +21,7 @@
 
 /sys/module/dhd/parameters/firmware_path		u:object_r:wlan_fwpath:s0
 /sys/module/dhd/parameters/nvram_path			u:object_r:wlan_fwpath:s0
-/sys/module/bcmdhd/parameters/firmware_path		u:object_r:wlan_fwpath:s0 
+/sys/module/bcmdhd/parameters/firmware_path		u:object_r:wlan_fwpath:s0
 
 # Camera
 /sys/devices/virtual/camera/rear/rear_camfw		u:object_r:camera_device:s0
