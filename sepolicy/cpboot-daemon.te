@@ -49,3 +49,8 @@ allow cpboot-daemon radio_device:chr_file { read write ioctl open };
 
 # ril.cbd.boot_done
 allow cpboot-daemon radio_prop:property_service set;
+
+allow cpboot-daemon proc:file read;
+allow cpboot-daemon proc_stat:file read;
+allow cpboot-daemon properties_device:dir read;
+allow cpboot-daemon sysfs:file append;
