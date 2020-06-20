@@ -1,2 +1,2 @@
 allow servicemanager gpsd_exec:file getattr;
-allow servicemanager sysfs:file read;
+allow servicemanager sysfs:file { read open getattr };

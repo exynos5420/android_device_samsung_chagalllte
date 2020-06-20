@@ -1,2 +1,2 @@
 allow sgdisk gpsd_exec:file getattr;
-allow sgdisk sysfs:file read;
+allow sgdisk sysfs:file { read open getattr };

@@ -3,3 +3,4 @@
 # this should be more specific - /system/lib/omx
 allow mediacodec system_file:dir r_dir_perms;
 allow mediacodec sysfs:file { read open getattr };
+allow mediacodec gpsd_exec:file getattr;

@@ -7,3 +7,5 @@
 #allow mediaserver vendor_file:file execmod;
 
 allow mediaserver gpsd_exec:file getattr;
+allow mediaserver camera_device:chr_file { read write open ioctl};
+allow mediaserver system_prop:property_service set;

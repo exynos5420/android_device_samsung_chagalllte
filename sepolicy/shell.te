@@ -1,2 +1,2 @@
 allow shell gpsd_exec:file getattr;
-allow shell sysfs:file read;
+allow shell sysfs:file { read open };

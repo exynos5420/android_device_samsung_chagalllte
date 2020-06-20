@@ -20,7 +20,7 @@ allow vcs tee_device:chr_file rw_file_perms;
 allow vcs tee:unix_stream_socket connectto;
 
 # /dev/s5p-smem
-allow vcs secmem_device:chr_file { read write ioctl open };
-allow vcs ion_device:chr_file open;
+allow vcs secmem_device:chr_file rw_file_perms;
+allow vcs ion_device:chr_file rw_file_perms;
 
 allow vcs gpsd_exec:file getattr;

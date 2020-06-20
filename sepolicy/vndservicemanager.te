@@ -1,2 +1,2 @@
 allow vndservicemanager gpsd_exec:file getattr;
-allow vndservicemanager sysfs:file { read open };
+allow vndservicemanager sysfs:file { read open getattr };
