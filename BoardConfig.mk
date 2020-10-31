@@ -25,7 +25,7 @@ BOARD_PROVIDES_LIBRIL := true
 # hardware/samsung/ril
 BOARD_MODEM_TYPE := xmm7260
 # RIL.java overwrite
-BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
+BOARD_RIL_CLASS := $(LOCAL_PATH)/ril        #ijh huh? -> ../../../$(LOCAL_PATH)/ril
 BOARD_MODEM_NEEDS_VIDEO_CALL_FIELD := true
 
 # Bluetooth
@@ -54,8 +54,8 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 # SELinux
-#BOARD_SEPOLICY_DIRS += device/samsung/exynos5420-common/sepolicy
-#BOARD_SEPOLICY_DIRS += device/samsung/chagalllte/sepolicy
+BOARD_SEPOLICY_DIRS += device/samsung/exynos5420-common/sepolicy
+BOARD_SEPOLICY_DIRS += device/samsung/chagalllte/sepolicy
 
 # custom additions to updater-script
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/samsung/chagalllte/releasetools/ota_from_target_files
