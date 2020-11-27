@@ -40,8 +40,3 @@ ro.config.nocheckin=1
 wifi.supplicant_scan_interval=180
 pm.sleep_mode=1
 ro.ril.disable.power.collapse=0
-
-#  "opengl", will use the existing OpenGL renderer
-#  "skiagl", will use Skia's OpenGL renderer
-#  "skiavk", will use Skia's Vulkan renderer
-debug.hwui.renderer=opengl
