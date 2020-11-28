@@ -60,8 +60,9 @@ BOARD_SEPOLICY_DIRS += device/samsung/chagalllte/sepolicy
 # custom additions to updater-script
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/samsung/chagalllte/releasetools/ota_from_target_files
 
-# Cyanogen Hardware
-BOARD_HARDWARE_CLASS := $(COMMON_PATH)/cmhw
+# Shim
+TARGET_LD_SHIM_LIBS += \
+    /system/bin/gpsd|libshim_gpsd.so
 
 # Audio
 TARGET_AUDIOHAL_VARIANT := samsung

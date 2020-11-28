@@ -56,11 +56,7 @@ PRODUCT_COPY_FILES += \
 
 # Shim
 PRODUCT_PACKAGES += \
-    libshim
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    keyguard.no_require_sim=true \
-    ro.com.android.dataroaming=true
+    libshim_gpsd
 
 # Permissions
 PRODUCT_COPY_FILES += \
