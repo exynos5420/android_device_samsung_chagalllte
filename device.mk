@@ -56,7 +56,7 @@ PRODUCT_COPY_FILES += \
 
 # Shim
 PRODUCT_PACKAGES += \
-    libshim
+    libshim_gpsd
 
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true \
