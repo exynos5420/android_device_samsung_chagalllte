@@ -96,8 +96,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=8m
 
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
-
 # call the proprietary setup
 $(call inherit-product, vendor/samsung/chagalllte/chagalllte-vendor.mk)
 
