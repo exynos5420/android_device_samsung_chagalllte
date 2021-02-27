@@ -23,7 +23,7 @@ service cpboot-daemon /system/bin/cbd -d -txmm7160 -bh -mh -p 13
     user root
     group radio cache inet misc audio sdcard_rw log sdcard_r shell
 
-service_redefine ril-daemon /system/bin/rild
+service ril-daemon /system/bin/rild
     class main
     socket rild stream 660 root radio
     socket sap_uim_socket1 stream 660 bluetooth bluetooth
@@ -42,8 +42,9 @@ on property:persist.sys.cpboot=disable
 #    user root
 #    group system radio inet net_raw
 
-on post-fs-data
+on property:sys.boot_completed=1
     # Symlink directories to access telephony.db and preferred-apn.xml required by cbd
+    # Required for mobile data bringup on first boot as /data/data/com.android.providers.telephony gets recreated on boot
     symlink /data/user_de/0/com.android.providers.telephony/databases /data/data/com.android.providers.telephony/databases
     symlink /data/user_de/0/com.android.providers.telephony/shared_prefs /data/data/com.android.providers.telephony/shared_prefs
 

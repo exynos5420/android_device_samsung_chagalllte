@@ -281,10 +281,10 @@
     <path name="voice-speaker">
         <path name="speaker" />
         <ctl name="Speaker Digital Volume" value="128" />
-        <ctl name="SPKOUTL Input 1 Volume" value="32" />
-        <ctl name="SPKOUTR Input 1 Volume" value="32" />
-        <ctl name="SPKOUTL Input 3 Volume" value="30" />
-        <ctl name="SPKOUTR Input 3 Volume" value="32" />
+        <ctl name="SPKOUTL Input 1 Volume" value="70" />
+        <ctl name="SPKOUTR Input 1 Volume" value="65" />
+        <ctl name="SPKOUTL Input 3 Volume" value="70" />
+        <ctl name="SPKOUTR Input 3 Volume" value="65" />
     </path>
 
     <path name="voice-speaker-wb">
@@ -339,7 +339,7 @@
 
     <path name="voice-mic">
         <path name="main-mic" />
-        <ctl name="IN1L Volume" value="24" />
+        <ctl name="IN1L Volume" value="30" />
         <ctl name="IN1L Digital Volume" value="128" />
         <ctl name="LHPF1 Input 1 Volume" value="32" />
     </path>

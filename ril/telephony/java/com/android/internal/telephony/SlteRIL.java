@@ -406,25 +406,26 @@ public class SlteRIL extends RIL {
         String strings[] = (String[])responseStrings(p);
         ArrayList<OperatorInfo> ret;
 
-        if (strings.length % 5 != 0) {
+        if (strings.length % mQANElements != 0) {
             throw new RuntimeException("RIL_REQUEST_QUERY_AVAILABLE_NETWORKS: invalid response. Got "
-                                       + strings.length + " strings, expected multiple of " + 5);
+                                       + strings.length + " strings, expected multiple of " + mQANElements);
         }
 
-        ret = new ArrayList<OperatorInfo>(strings.length / 5);
-        for (int i = 0 ; i < strings.length ; i += 5) {
+        ret = new ArrayList<OperatorInfo>(strings.length / mQANElements);
+        for (int i = 0 ; i < strings.length ; i += mQANElements) {
             String strOperatorLong = strings[i+0];
+            String strOperatorShort = strings[i+1];
             String strOperatorNumeric = strings[i+2];
             String strState = strings[i+3].toLowerCase();
 
             Rlog.v(RILJ_LOG_TAG,
                    "XMM7260: Add OperatorInfo: " + strOperatorLong +
-                   ", " + strOperatorLong +
+                   ", " + strOperatorShort +
                    ", " + strOperatorNumeric +
                    ", " + strState);
 
             ret.add(new OperatorInfo(strOperatorLong, // operatorAlphaLong
-                                     strOperatorLong, // operatorAlphaShort
+                                     strOperatorShort, // operatorAlphaShort
                                      strOperatorNumeric,    // operatorNumeric
                                      strState));  // stateString
         }
