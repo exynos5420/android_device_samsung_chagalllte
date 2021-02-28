@@ -1,0 +1,6 @@
+[
+  {
+    "repository": "Exynos7580/android_external_protobuf-compat-2.6",
+    "target_path": "external/protobuf-compat-2.6"
+  }
+]

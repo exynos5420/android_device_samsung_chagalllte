@@ -57,9 +57,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libshim_gpsd
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    keyguard.no_require_sim=true \
-    ro.com.android.dataroaming=true
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -81,11 +78,15 @@ PRODUCT_PACKAGES += \
     librilutils \
     rild \
     libxml2 \
-    libprotobuf-cpp-full \
+    libprotobuf-cpp-fl26 \
     modemloader
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.carrier=unknown
+    keyguard.no_require_sim=true \
+    ro.com.android.dataroaming=true \
+    ro.oem_unlock_supported=0 \
+    ro.frp.pst=/dev/block/platform/dw_mmc.0/by-name/PERSDATA \
+	ro.carrier=unknown
 
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -95,6 +96,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heaptargetutilization=0.75 \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=8m
+
+# https://source.android.com/devices/graphics/renderer
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.zygote.disable_gl_preload=true
 
 # call the proprietary setup
 $(call inherit-product, vendor/samsung/chagalllte/chagalllte-vendor.mk)
