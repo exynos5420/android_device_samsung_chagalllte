@@ -1,1 +1,7 @@
-type vcs_data_file, file_type, data_file_type;
+type vcs_data_file, file_type, data_file_type, core_data_file_type;
+type emmcblk_device, file_type;
+type gps_data_file, file_type, data_file_type, core_data_file_type;
+type wlan_fwpath, fs_type, sysfs_type;
+type sec_efs_file, file_type;
+
+allow sysfs_type tmpfs:filesystem associate;
