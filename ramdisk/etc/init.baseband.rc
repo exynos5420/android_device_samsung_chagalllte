@@ -6,7 +6,19 @@ on init
 
     write /sys/module/modem_link_pm_xmm626x/parameters/l2_delay 500
     write /sys/module/modem_link_pm_xmm626x/parameters/hub_delay 500
-    write /sys/module/modem_link_device_hsic_4ncm/parameters/tx_qlen 50
+    write /sys/module/modem_link_device_hsic_ncm/parameters/tx_qlen 50
+    chmod 0644 /proc/cmdline
+
+on post-fs-data
+    # Remove symlinks to avoid issues with migrate after nandroid restores
+    # Will be recreated at end of boot
+    rm /data/data/com.android.providers.telephony/databases
+    rm /data/data/com.android.providers.telephony/shared_prefs
+
+on property:sys.boot_completed=1
+    # Symlink directories to access telephony.db and preferred-apn.xml required by cbd
+    symlink /data/user_de/0/com.android.providers.telephony/databases /data/data/com.android.providers.telephony/databases
+    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs /data/data/com.android.providers.telephony/shared_prefs
 
 on fs
     chown radio system /efs
@@ -21,3 +33,7 @@ service cpboot-daemon /vendor/bin/cbd -d -txmm7160 -bh -mh -p 13
     class main
     user root
     group radio cache inet misc audio sdcard_rw log sdcard_r shell
+
+on property:persist.sys.cpboot=disable
+    stop ril-daemon
+    stop cpboot-daemon
