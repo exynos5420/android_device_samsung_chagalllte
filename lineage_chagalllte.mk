@@ -35,6 +35,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-samsung
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=chagallltexx \
-    PRIVATE_BUILD_DESC="chagallltezh-user 6.0.1 MMB29K T805ZHU1CQB1 release-keys"
+    PRIVATE_BUILD_DESC="chagallltexx-user 6.0.1 MMB29K T805XXU1CVG2 release-keys"
 
-BUILD_FINGERPRINT := samsung/chagallltezh/chagalllte:6.0.1/MMB29K/T805ZHU1CQB1:user/release-keys
+BUILD_FINGERPRINT := samsung/chagallltexx/chagalllte:6.0.1/MMB29K/T805XXU1CVG2:user/release-keys
