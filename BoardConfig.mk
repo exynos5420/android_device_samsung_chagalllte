@@ -53,7 +53,8 @@ BOARD_MODEM_TYPE := xmm7260
 
 # Shims
 TARGET_LD_SHIM_LIBS += \
-    /vendor/bin/gpsd|/vendor/lib/libshim_gps.so
+    /vendor/bin/gpsd|/vendor/lib/libshim_gps.so \
+    /vendor/lib/libsec-ril.so|libcutils_shim.so
 
 # Inherit from the proprietary version
 -include vendor/samsung/chagalllte/BoardConfigVendor.mk
